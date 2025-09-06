@@ -46,9 +46,9 @@ app.get('/', (req, res) => {
   });
 });
 
-// Start both services as child processes
+// Start audio service only (meeting bot disabled for Railway deployment)
 function startServices() {
-  console.log('🚀 Starting Verba AI Backend Services...');
+  console.log('🚀 Starting Verba AI Audio Service...');
   
   // Start Audio Service
   const audioService = spawn('node', ['audio-service/src/server.js'], {
@@ -61,19 +61,7 @@ function startServices() {
     console.error('Audio service error:', err);
   });
 
-  // Start Meeting Bot Service  
-  const meetingBot = spawn('node', ['meeting-bot/src/index.js'], {
-    stdio: 'inherit',
-    shell: true,
-    env: { ...process.env, NODE_PATH: path.join(__dirname, 'node_modules') }
-  });
-
-  meetingBot.on('error', (err) => {
-    console.error('Meeting bot error:', err);
-  });
-
   console.log('✅ Audio Service starting on port 4000');
-  console.log('✅ Meeting Bot starting on port 5001');
   console.log(`✅ Main server starting on port ${PORT}`);
 }
 
