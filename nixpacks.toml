@@ -1,12 +1,10 @@
-[phases.build]
-cmds = [
-  "cd audio-service && npm install",
-  "cd meeting-bot && npm install", 
-  "npm install"
-]
+[phases.install]
+cmd = "npm install --production"
 
 [phases.start]
 cmd = "npm start"
 
 [variables]
 NODE_ENV = "production"
+NPM_CONFIG_AUDIT = "false"
+NPM_CONFIG_FUND = "false"

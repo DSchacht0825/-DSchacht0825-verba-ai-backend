@@ -51,10 +51,10 @@ function startServices() {
   console.log('🚀 Starting Verba AI Backend Services...');
   
   // Start Audio Service
-  const audioService = spawn('npm', ['start'], {
-    cwd: path.join(__dirname, 'audio-service'),
+  const audioService = spawn('node', ['audio-service/src/server.js'], {
     stdio: 'inherit',
-    shell: true
+    shell: true,
+    env: { ...process.env, NODE_PATH: path.join(__dirname, 'node_modules') }
   });
 
   audioService.on('error', (err) => {
@@ -62,10 +62,10 @@ function startServices() {
   });
 
   // Start Meeting Bot Service  
-  const meetingBot = spawn('npm', ['start'], {
-    cwd: path.join(__dirname, 'meeting-bot'), 
+  const meetingBot = spawn('node', ['meeting-bot/src/index.js'], {
     stdio: 'inherit',
-    shell: true
+    shell: true,
+    env: { ...process.env, NODE_PATH: path.join(__dirname, 'node_modules') }
   });
 
   meetingBot.on('error', (err) => {

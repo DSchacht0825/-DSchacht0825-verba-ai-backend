@@ -6,15 +6,30 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "install-services": "cd audio-service && npm install && cd ../meeting-bot && npm install",
-    "start:audio": "cd audio-service && npm start",
-    "start:meeting": "cd meeting-bot && npm start",
-    "dev:audio": "cd audio-service && npm run dev",
-    "dev:meeting": "cd meeting-bot && npm run dev"
+    "start:audio": "cd audio-service && node src/server.js",
+    "start:meeting": "cd meeting-bot && node src/index.js"
   },
   "dependencies": {
     "express": "^4.18.0",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "socket.io": "^4.7.0",
+    "multer": "^1.4.4",
+    "openai": "^4.0.0",
+    "@deepgram/sdk": "^3.0.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.0",
+    "helmet": "^7.1.0",
+    "winston": "^3.11.0",
+    "uuid": "^9.0.0",
+    "puppeteer": "^21.0.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "playwright": "^1.40.0",
+    "@microsoft/teams-js": "^2.0.0",
+    "socket.io-client": "^4.7.0",
+    "node-cron": "^3.0.0",
+    "@google-cloud/speech": "^6.0.0",
+    "fluent-ffmpeg": "^2.1.2"
   },
   "engines": {
     "node": ">=18.0.0"
