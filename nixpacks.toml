@@ -1,0 +1,12 @@
+[phases.build]
+cmds = [
+  "cd audio-service && npm install",
+  "cd meeting-bot && npm install", 
+  "npm install"
+]
+
+[phases.start]
+cmd = "npm start"
+
+[variables]
+NODE_ENV = "production"

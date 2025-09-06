@@ -1,0 +1,25 @@
+{
+  "name": "verba-ai-backend",
+  "version": "1.0.0",
+  "description": "Verba AI Backend Services - Audio transcription and Meeting bot",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "install-services": "cd audio-service && npm install && cd ../meeting-bot && npm install",
+    "start:audio": "cd audio-service && npm start",
+    "start:meeting": "cd meeting-bot && npm start",
+    "dev:audio": "cd audio-service && npm run dev",
+    "dev:meeting": "cd meeting-bot && npm run dev"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["verba", "ai", "transcription", "meeting-bot", "clinical-notes"],
+  "author": "Verba AI",
+  "license": "MIT"
+}
